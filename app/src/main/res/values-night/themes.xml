@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. Kita paksa tetap Light meskipun di folder values-night -->
+    <style name="Base.Theme.Absensi" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Jangan tambahkan kustomisasi warna gelap di sini -->
+    </style>
+</resources>

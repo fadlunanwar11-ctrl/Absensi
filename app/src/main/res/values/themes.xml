@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. Kita ganti DayNight jadi Light -->
+    <style name="Base.Theme.Absensi" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+    </style>
+
+    <style name="Theme.Absensi" parent="Base.Theme.Absensi" />
+</resources>
