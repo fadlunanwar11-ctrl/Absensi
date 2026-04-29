@@ -1,6 +1,10 @@
 package com.example.absensi;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -16,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    String userRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +28,22 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        // Ambil role user
+        SharedPreferences pref = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE);
+        userRole = pref.getString("role", "guru_mapel");
+
         bottomNavigationView = findViewById(R.id.bottom_nav);
+
+        // Update title menu navigasi secara dinamis
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem navKitabRaport = menu.findItem(R.id.nav_raport);
+        if (navKitabRaport != null) {
+            if ("wali_kelas".equals(userRole)) {
+                navKitabRaport.setTitle("RAPORT");
+            } else {
+                navKitabRaport.setTitle("KITAB");
+            }
+        }
 
         // Set fragment awal yang muncul
         loadFragment(new HomeFragment());
@@ -40,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
             if (id == R.id.nav_home) {
                 selectedFragment = new HomeFragment();
-            } else if (id == R.id.nav_kitab) {
-                selectedFragment = new KitabFragment();
+            } else if (id == R.id.nav_raport) {
+                if ("wali_kelas".equals(userRole)) {
+                    selectedFragment = new RaportFragment();
+                } else {
+                    selectedFragment = new KitabFragment();
+                }
             } else if (id == R.id.nav_profile) {
                 selectedFragment = new ProfileFragment();
             }
@@ -49,15 +73,14 @@ public class MainActivity extends AppCompatActivity {
             return loadFragment(selectedFragment);
         });
 
-        // Menyesuaikan Padding agar tidak tertutup System Bar (Navigasi HP)
+        // Menyesuaikan Padding
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0); // Bottom padding 0 agar Navigasi nempel bawah
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
         });
     }
 
-    // Fungsi Animasi Timbul (Pop)
     private void applyPopAnimation(View view) {
         ScaleAnimation scaleAnimation = new ScaleAnimation(
                 0.8f, 1.0f, 

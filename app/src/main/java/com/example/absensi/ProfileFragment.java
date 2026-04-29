@@ -40,8 +40,8 @@ public class ProfileFragment extends Fragment {
         Button btnLogout = view.findViewById(R.id.btnLogout);
 
         // Contoh set data (Nanti bisa diambil dari database/sharedpreferences)
-        tvName.setText("Rifki Teacher");
-        tvRole.setText("Guru Mapel");
+        tvName.setText("Roni");
+        tvRole.setText("admin");
 
         // 3. Tambahkan Fungsi Klik
         btnEditProfile.setOnClickListener(v -> {

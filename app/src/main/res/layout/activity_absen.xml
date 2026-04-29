@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9FAFB"
+    android:id="@+id/absenactivity">
+
+    <!-- Header / Judul -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Absensi Santri"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#111827"
+        android:padding="20dp"/>
+
+    <!-- Daftar Santri -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAbsenSantri"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="4dp" />
+
+    <!-- Tombol Simpan -->
+    <Button
+        android:id="@+id/btnSimpanAbsen"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:text="SIMPAN KEHADIRAN"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null"
+        android:textColor="#FFFF" />
+
+</LinearLayout>

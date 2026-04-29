@@ -6,11 +6,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubBabAdapter extends RecyclerView.Adapter<SubBabAdapter.SubBabViewHolder> {
 
     private List<SubBab> subBabList;
+    private List<SubBab> subBabListFull;
     private OnSubBabClickListener listener;
 
     public interface OnSubBabClickListener {
@@ -19,6 +21,7 @@ public class SubBabAdapter extends RecyclerView.Adapter<SubBabAdapter.SubBabView
 
     public SubBabAdapter(List<SubBab> subBabList, OnSubBabClickListener listener) {
         this.subBabList = subBabList;
+        this.subBabListFull = new ArrayList<>(subBabList);
         this.listener = listener;
     }
 
@@ -45,6 +48,21 @@ public class SubBabAdapter extends RecyclerView.Adapter<SubBabAdapter.SubBabView
     @Override
     public int getItemCount() {
         return subBabList.size();
+    }
+
+    public void filter(String text) {
+        subBabList.clear();
+        if (text.isEmpty()) {
+            subBabList.addAll(subBabListFull);
+        } else {
+            text = text.toLowerCase();
+            for (SubBab item : subBabListFull) {
+                if (item.getJudul().toLowerCase().contains(text)) {
+                    subBabList.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     public static class SubBabViewHolder extends RecyclerView.ViewHolder {

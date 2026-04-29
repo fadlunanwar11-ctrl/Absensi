@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Absensi">
         <activity
+            android:name=".DaftarKelasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RekapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PenilaianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AbsenActivity"
+            android:exported="false" />
+        <activity
             android:name=".MateriActivity"
             android:exported="false" />
         <activity

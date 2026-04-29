@@ -2,6 +2,7 @@ package com.example.absensi;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,7 @@ public class DetailKitabActivity extends AppCompatActivity {
     private RecyclerView rvSubBab;
     private SubBabAdapter adapter;
     private FloatingActionButton fabAddSubBab;
+    private SearchView svSubBab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class DetailKitabActivity extends AppCompatActivity {
         TextView tvNamaKitab = findViewById(R.id.tvDetailNamaKitab);
         tvNamaKitab.setText(kitab.getNama());
 
+        svSubBab = findViewById(R.id.svSubBab);
         rvSubBab = findViewById(R.id.rvSubBab);
         rvSubBab.setLayoutManager(new LinearLayoutManager(this));
 
@@ -51,12 +55,27 @@ public class DetailKitabActivity extends AppCompatActivity {
         });
         rvSubBab.setAdapter(adapter);
 
+        // Fitur Cari Bab
+        svSubBab.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) { return false; }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.filter(newText);
+                return true;
+            }
+        });
+
         fabAddSubBab = findViewById(R.id.fabAddSubBab);
         
-        // Cek Role Admin (Ini bisa dari session/SharedPreferences)
-        String role = "admin"; // Contoh manual
+        SharedPreferences pref = getSharedPreferences("USER_DATA", MODE_PRIVATE);
+        String role = pref.getString("role", "guru_mapel");
+
         if ("admin".equals(role)) {
             fabAddSubBab.setVisibility(View.VISIBLE);
+        } else {
+            fabAddSubBab.setVisibility(View.GONE);
         }
 
         fabAddSubBab.setOnClickListener(v -> showAddSubBabDialog());
@@ -64,7 +83,7 @@ public class DetailKitabActivity extends AppCompatActivity {
 
     private void showAddSubBabDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_kitab, null); // Pakai layout dialog yang sama
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_kitab, null);
         builder.setView(dialogView);
 
         EditText etJudul = dialogView.findViewById(R.id.etNamaKitab);
