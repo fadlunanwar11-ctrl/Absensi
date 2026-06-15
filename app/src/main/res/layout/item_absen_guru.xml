@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Foto Bukti -->
+            <ImageView
+                android:id="@+id/imgBuktiAbsenGuru"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_profile"
+                android:scaleType="centerCrop"
+                android:background="#E5E7EB"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNamaGuruAbsen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Budi Santoso"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#111827" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipStatusGuruAbsen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Masuk"
+                        android:textSize="10sp"
+                        app:chipBackgroundColor="#DBEAFE"
+                        android:textColor="#0369A1"
+                        app:chipCornerRadius="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_profile"
+                        app:tint="#9CA3AF" />
+
+                    <TextView
+                        android:id="@+id/tvJamAbsenGuru"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="07:45"
+                        android:textSize="11sp"
+                        android:textColor="#6B7280"
+                        android:layout_marginStart="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" • "
+                        android:textSize="11sp"
+                        android:textColor="#D1D5DB"
+                        android:layout_marginHorizontal="6dp" />
+
+                    <TextView
+                        android:id="@+id/tvMapelGuruAbsen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Matematika"
+                        android:textSize="11sp"
+                        android:textColor="#6B7280" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_profile"
+                        app:tint="#9CA3AF" />
+
+                    <TextView
+                        android:id="@+id/tvKelasAbsenGuru"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kelas 1A"
+                        android:textSize="11sp"
+                        android:textColor="#6B7280"
+                        android:layout_marginStart="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" • "
+                        android:textSize="11sp"
+                        android:textColor="#D1D5DB"
+                        android:layout_marginHorizontal="6dp" />
+
+                    <TextView
+                        android:id="@+id/tvKuantitasMurid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30 murid"
+                        android:textSize="11sp"
+                        android:textColor="#6B7280" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Action Menu -->
+            <ImageButton
+                android:id="@+id/btnMenuAbsenGuru"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_profile"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerInside"
+                android:contentDescription="Menu" />
+        </LinearLayout>
+
+        <!-- Keterangan Foto -->
+        <TextView
+            android:id="@+id/tvKeteranganFotoAbsen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foto menunjukkan kelas sedang berlangsung pembelajaran"
+            android:textSize="10sp"
+            android:textColor="#9CA3AF"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

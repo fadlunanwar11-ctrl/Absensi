@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.anthropic.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9FAFB">
+
+    <!-- Filter Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <!-- Search / Filter Santri -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Cari Santri"
+            app:startIconDrawable="@drawable/ic_profile"
+            app:boxBackgroundMode="outline"
+            android:layout_marginEnd="8dp">
+
+            <com.google.android.material.textfield.MaterialEditText
+                android:id="@+id/etSearchSantriHafalan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Sort Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSortHafalan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Urutkan"
+            android:textSize="12sp"
+            app:cornerRadius="8dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+    </LinearLayout>
+
+    <!-- Status Filter -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:scrollbars="none"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSemuaSantri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semua"
+                android:textSize="12sp"
+                android:layout_marginEnd="6dp"
+                app:chipBackgroundColor="#3B82F6"
+                android:textColor="@color/white"
+                app:chipCornerRadius="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLanjut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lanjut"
+                android:textSize="12sp"
+                android:layout_marginEnd="6dp"
+                app:chipBackgroundColor="#F3F4F6"
+                android:textColor="#6B7280"
+                app:chipCornerRadius="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNgulang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngulang"
+                android:textSize="12sp"
+                app:chipBackgroundColor="#F3F4F6"
+                android:textColor="#6B7280"
+                app:chipCornerRadius="16dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- List Hafalan Santri -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHafalanSantriWali"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        tools:listitem="@layout/item_hafalan_santri_wali" />
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/emptyStateHafalanWali"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_check"
+            android:scaleType="centerInside"
+            app:tint="#D1D5DB"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tidak ada data hafalan"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#6B7280"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data hafalan akan muncul setelah guru mengisinya"
+            android:textSize="12sp"
+            android:textColor="#9CA3AF"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</LinearLayout>

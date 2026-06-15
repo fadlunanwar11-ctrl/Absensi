@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9FAFB">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarTambahMurid"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Tambah Murid"
+        app:titleTextColor="@color/black"
+        android:background="#FFFFFF" />
+
+    <!-- Tab: Manual / Import Excel -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabTambahMurid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:tabIndicatorColor="#3B82F6"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="#3B82F6"
+        app:tabTextColor="#9CA3AF">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manual" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Import Excel" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- ViewPager untuk Tab Content -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerTambahMurid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

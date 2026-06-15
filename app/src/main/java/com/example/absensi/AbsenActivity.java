@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -38,6 +39,13 @@ public class AbsenActivity extends AppCompatActivity {
         dataSantri.add(new Santri("Eko Prasetyo"));
         dataSantri.add(new Santri("Fajar Siddiq"));
 
+        Toolbar toolbar = findViewById(R.id.toolbarAbsen);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Absen Santri");
+        }
+        toolbar.setNavigationOnClickListener(v -> finish());
         // Memasang Adapter
         adapter = new SantriAdapter(dataSantri);
         rvAbsenSantri.setLayoutManager(new LinearLayoutManager(this));

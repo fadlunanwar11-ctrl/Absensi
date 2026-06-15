@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvNomorHafalanRaport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1."
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tvHafalanRaport"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Surah Al-Baqarah, Ayat 1-5"
+                android:textSize="12sp"
+                android:textColor="#111827" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_profile"
+                app:tint="#6B7280"
+                android:layout_marginEnd="4dp" />
+
+            <TextView
+                android:id="@+id/tvTglHafalanRaport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 Juni 2026"
+                android:textSize="10sp"
+                android:textColor="#6B7280" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" • "
+                android:textSize="10sp"
+                android:textColor="#D1D5DB"
+                android:layout_marginHorizontal="6dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipStatusHafalanRaport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lanjut"
+                android:textSize="9sp"
+                app:chipBackgroundColor="#DBEAFE"
+                android:textColor="#0369A1"
+                app:chipCornerRadius="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

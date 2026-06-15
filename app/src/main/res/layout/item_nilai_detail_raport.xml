@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="12dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMapelRaport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matematika"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#111827" />
+
+        <TextView
+            android:id="@+id/tvInfoMapel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guru: Budi Santoso"
+            android:textSize="10sp"
+            android:textColor="#6B7280"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:marginEnd="12dp">
+
+        <TextView
+            android:id="@+id/tvNilaiRaport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="85"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#3B82F6" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGradeMapel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:textSize="9sp"
+            app:chipBackgroundColor="#DBEAFE"
+            android:textColor="#0369A1"
+            app:chipCornerRadius="12dp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+</LinearLayout>

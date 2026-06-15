@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Timeline Dot -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:marginEnd="16dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            android:id="@+id/dotJadwal"
+            app:cardBackgroundColor="#3B82F6">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvJam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:00 - 10:00"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#111827" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sekarang"
+                android:textSize="10sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:chipBackgroundColor="#DBEAFE"
+                android:textColor="#0369A1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvMataPelajaran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matematika"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_marginTop="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_profile"
+                app:tint="#9CA3AF" />
+
+            <TextView
+                android:id="@+id/tvKelas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kelas 1A"
+                android:textSize="11sp"
+                android:textColor="#6B7280"
+                android:layout_marginStart="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" • "
+                android:textSize="11sp"
+                android:textColor="#D1D5DB"
+                android:layout_marginHorizontal="6dp" />
+
+            <TextView
+                android:id="@+id/tvRuangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ruang 101"
+                android:textSize="11sp"
+                android:textColor="#6B7280" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

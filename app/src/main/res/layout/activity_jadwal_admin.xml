@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.anthropic.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F9FAFB"
-    android:paddingTop="24dp">
+    android:background="#F9FAFB">
 
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarPenilaian"
+        android:id="@+id/toolbarTambahJadwal"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Penilaian Santri"
+        app:title="Jadwal Mengajar"
         app:titleTextColor="@color/black"
         app:navigationIcon="?attr/homeAsUpIndicator" />
 
+    <!-- List Jadwal per Kelas -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPenilaian"
+        android:id="@+id/rvJadwalAdminPerKelas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="8dp"
-        tools:listitem="@layout/item_santri_penilaian" />
+        tools:listitem="@layout/item_jadwal_admin_kelas" />
 
-    <Button
-        android:id="@+id/btnSimpanNilai"
-        android:layout_width="match_parent"
+    <!-- FAB: Tambah Jadwal -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTambahJadwal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:text="SIMPAN SEMUA NILAI"
-        android:background="@drawable/btn_gradient"
-        app:backgroundTint="@null"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:src="@android:drawable/ic_input_add"
+        app:tint="#FFFFFF"
+        app:backgroundTint="#3B82F6" />
 
 </LinearLayout>

@@ -8,14 +8,14 @@
     android:id="@+id/absenactivity">
 
     <!-- Header / Judul -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAbsen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Absensi Santri"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#111827"
-        android:padding="20dp"/>
+        android:layout_height="?attr/actionBarSize"
+
+        app:title="Absen Santri"
+        app:titleTextColor="@color/black"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <!-- Daftar Santri -->
     <androidx.recyclerview.widget.RecyclerView
