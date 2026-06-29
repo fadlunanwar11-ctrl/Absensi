@@ -1,6 +1,9 @@
 package com.example.absensi.dashboard;
 
 import java.text.SimpleDateFormat;
+
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -67,5 +70,32 @@ public class DashboardUtils {
         return sdf.format(Calendar.getInstance().getTime());
 
     }
+    public static String getStatusJadwal(String mulai, String selesai) {
 
+        try {
+
+            String[] mulaiSplit = mulai.substring(0, 5).split(":");
+            String[] selesaiSplit = selesai.substring(0, 5).split(":");
+
+            int mulaiMenit = Integer.parseInt(mulaiSplit[0]) * 60 + Integer.parseInt(mulaiSplit[1]);
+            int selesaiMenit = Integer.parseInt(selesaiSplit[0]) * 60 + Integer.parseInt(selesaiSplit[1]);
+
+            Calendar sekarang = Calendar.getInstance();
+            int sekarangMenit = sekarang.get(Calendar.HOUR_OF_DAY) * 60
+                    + sekarang.get(Calendar.MINUTE);
+
+            if (sekarangMenit < mulaiMenit) {
+                return "Akan Datang";
+            }
+
+            if (sekarangMenit > selesaiMenit) {
+                return "Selesai";
+            }
+
+            return "Sedang Berlangsung";
+
+        } catch (Exception e) {
+            return "Terjadwal";
+        }
+    }
 }

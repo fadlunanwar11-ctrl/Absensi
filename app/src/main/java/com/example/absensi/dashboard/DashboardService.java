@@ -14,13 +14,22 @@ public interface DashboardService {
 
             @Header("Authorization") String bearerToken,
 
-
-
             @Query("guru_id") String guruId,
 
             @Query("hari") String hari,
 
             @Query("select") String select
     );
+    @GET("santri")
+    Call<List<SantriModel>> getSantriByKelas(
 
+            @Header("Authorization") String bearerToken,
+
+            @Query("kelas_id") String kelasId,
+
+            @Query("order") String order,
+
+            @Query("select") String select
+
+    );
 }

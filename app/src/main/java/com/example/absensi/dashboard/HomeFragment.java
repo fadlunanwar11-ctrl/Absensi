@@ -1,7 +1,7 @@
 package com.example.absensi.dashboard;
 
 import android.os.Bundle;
-
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -10,7 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.SharedPreferences;
-
+import java.util.List;
+import android.widget.Toast;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +22,7 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.example.absensi.R;
+import com.example.absensi.activity.AbsenActivity;
 
 import java.util.ArrayList;
 
@@ -68,7 +73,7 @@ public class HomeFragment extends Fragment {
         initView(view);
 
         setupRecyclerView();
-
+        repository = new DashboardRepository();
         preferences = requireActivity()
                 .getSharedPreferences("ABSENSI_APP", Context.MODE_PRIVATE);
 
@@ -95,7 +100,22 @@ public class HomeFragment extends Fragment {
 
     private void setupRecyclerView(){
 
-        jadwalAdapter = new JadwalAdapter(new ArrayList<>());
+        jadwalAdapter = new JadwalAdapter(
+                new ArrayList<>(),
+                jadwal -> {
+
+                    Intent intent = new Intent(getActivity(), AbsenActivity.class);
+
+                    intent.putExtra("jadwal_id", jadwal.getId());
+                    intent.putExtra("kelas_id", jadwal.getKelasId());
+                    intent.putExtra("mapel", jadwal.getMapel());
+                    intent.putExtra("jam_mulai", jadwal.getJamMulai());
+                    intent.putExtra("jam_selesai", jadwal.getJamSelesai());
+
+                    startActivity(intent);
+
+                }
+        );
 
         rvJadwalHariIni.setLayoutManager(
                 new LinearLayoutManager(getContext())
@@ -122,6 +142,44 @@ public class HomeFragment extends Fragment {
 
         tvUserRole.setText(role);
         setupRoleUI();
+        loadJadwalHariIni();
+    }
+    private void loadJadwalHariIni() {
+
+        repository.getJadwalHariIni(
+                accessToken,
+                userId,
+                DashboardUtils.getHariIndonesia()
+        ).enqueue(new Callback<List<JadwalModel>>() {
+
+            @Override
+            public void onResponse(Call<List<JadwalModel>> call,
+                                   Response<List<JadwalModel>> response) {
+
+                if (response.isSuccessful() && response.body() != null) {
+
+                    jadwalAdapter.updateData(response.body());
+
+                } else {
+
+                    Toast.makeText(getContext(),
+                            "Gagal memuat jadwal",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<JadwalModel>> call,
+                                  Throwable t) {
+
+                Toast.makeText(getContext(),
+                        "Error : " + t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
     private void setupRoleUI() {
 

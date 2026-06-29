@@ -21,7 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbsenActivity extends AppCompatActivity {
+    private int jadwalId;
+    private int kelasId;
 
+    private String mapel;
+    private String jamMulai;
+    private String jamSelesai;
     private List<Santri> dataSantri;
     private SantriAdapter adapter;
 
@@ -34,14 +39,17 @@ public class AbsenActivity extends AppCompatActivity {
 
         RecyclerView rvAbsenSantri = findViewById(R.id.rvAbsenSantri);
 
-        // Menyiapkan data santri (Contoh Data)
+        //untuk list absensi
         dataSantri = new ArrayList<>();
-        dataSantri.add(new Santri("Ahmad Fauzi"));
-        dataSantri.add(new Santri("Budi Santoso"));
-        dataSantri.add(new Santri("Candra Wijaya"));
-        dataSantri.add(new Santri("Dedi Irawan"));
-        dataSantri.add(new Santri("Eko Prasetyo"));
-        dataSantri.add(new Santri("Fajar Siddiq"));
+        adapter = new SantriAdapter(dataSantri);
+        rvAbsenSantri.setLayoutManager(new LinearLayoutManager(this));
+        rvAbsenSantri.setAdapter(adapter);
+
+        jadwalId = getIntent().getIntExtra("jadwal_id", -1);
+        kelasId = getIntent().getIntExtra("kelas_id", -1);
+        mapel = getIntent().getStringExtra("mapel");
+        jamMulai = getIntent().getStringExtra("jam_mulai");
+        jamSelesai = getIntent().getStringExtra("jam_selesai");
 
         Toolbar toolbar = findViewById(R.id.toolbarAbsen);
         setSupportActionBar(toolbar);

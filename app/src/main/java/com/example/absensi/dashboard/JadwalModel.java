@@ -27,6 +27,9 @@ public class JadwalModel {
 
     @SerializedName("ruangan")
     private String ruangan;
+    @SerializedName("kelas")
+    private KelasModel kelas;
+
 
     public JadwalModel() {
     }
@@ -62,10 +65,13 @@ public class JadwalModel {
     public String getRuangan() {
         return ruangan;
     }
-
+    public KelasModel getKelas() {
+        return kelas;
+    }
     public void setId(int id) {
         this.id = id;
     }
+
 
     public void setGuruId(String guruId) {
         this.guruId = guruId;
@@ -94,4 +100,8 @@ public class JadwalModel {
     public void setRuangan(String ruangan) {
         this.ruangan = ruangan;
     }
+    public void setKelas(KelasModel kelas) {
+        this.kelas = kelas;
+    }
+
 }

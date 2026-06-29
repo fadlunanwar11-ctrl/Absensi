@@ -22,7 +22,10 @@ public class Santri implements Serializable {
         this.nama = nama;
         this.id = java.util.UUID.randomUUID().toString();
     }
-
+    public Santri(String id, String nama) {
+        this.id = id;
+        this.nama = nama;
+    }
     public String getId() { return id; }
     public String getNama() { return nama; }
 

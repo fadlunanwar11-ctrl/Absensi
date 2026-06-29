@@ -18,19 +18,29 @@ public class DashboardRepository {
      * Mengambil jadwal mengajar guru berdasarkan hari.
      */
     public Call<List<JadwalModel>> getJadwalHariIni(
-            String bearerToken,
-
+            String accessToken,
             String guruId,
             String hari
     ) {
 
         return dashboardService.getJadwalHariIni(
-                bearerToken,
+                "Bearer " + accessToken,
+                "eq." + guruId,
+                "eq." + hari,
+                "*"
 
-                guruId,
-                hari,
-                "*,kelas(nama_kelas)"
         );
     }
+    public Call<List<SantriModel>> getSantriByKelas(
+            String accessToken,
+            int kelasId
+    ) {
 
+        return dashboardService.getSantriByKelas(
+                "Bearer " + accessToken,
+                "eq." + kelasId,
+                "nama.asc",
+                "*"
+        );
+    }
 }
