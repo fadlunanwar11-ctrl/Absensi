@@ -2,7 +2,7 @@ package com.example.absensi.config;
 
 import com.example.absensi.network.AuthService;
 import com.example.absensi.network.ProfileService;
-
+import com.example.absensi.dashboard.DashboardService;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -54,5 +54,17 @@ public class RetrofitClient {
                     .build();
         }
         return restRetrofit.create(ProfileService.class);
+    }
+    public static DashboardService getDashboardService() {
+
+        if (restRetrofit == null) {
+            restRetrofit = new Retrofit.Builder()
+                    .baseUrl(SupabaseConfig.REST_URL)
+                    .client(getHttpClient())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+        return restRetrofit.create(DashboardService.class);
     }
 }

@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.absensi.R;
 import com.example.absensi.helper.Constant;
-import com.example.absensi.fragment.HomeFragment;
+import com.example.absensi.dashboard.HomeFragment;
 import com.example.absensi.fragment.KitabFragment;
 import com.example.absensi.fragment.ProfileFragment;
 import com.example.absensi.fragment.RaportFragment;

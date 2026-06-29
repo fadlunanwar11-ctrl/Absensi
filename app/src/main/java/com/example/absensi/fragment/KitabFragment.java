@@ -50,7 +50,7 @@ public class KitabFragment extends Fragment {
         svKitab = view.findViewById(R.id.svKitab);
         rvKitab = view.findViewById(R.id.rvKitab);
         fabAddKitab = view.findViewById(R.id.fabAddKitab);
-        
+
         rvKitab.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Data awal
@@ -63,8 +63,8 @@ public class KitabFragment extends Fragment {
 
         // --- LOGIKA ROLE REAL ---
         // Mengambil role dari SharedPreferences yang disimpan saat Login
-        SharedPreferences pref = getActivity().getSharedPreferences("USER_DATA", Context.MODE_PRIVATE);
-        String role = pref.getString("role", "user"); // default "user" jika tidak ketemu
+        SharedPreferences pref = getActivity().getSharedPreferences("ABSENSI_APP", Context.MODE_PRIVATE);
+        String role = pref.getString("user_role", "guru_mapel");
 
         if ("admin".equals(role)) {
             fabAddKitab.setVisibility(View.VISIBLE);

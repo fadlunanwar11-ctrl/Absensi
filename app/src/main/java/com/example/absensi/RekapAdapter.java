@@ -26,11 +26,10 @@ public class RekapAdapter extends RecyclerView.Adapter<RekapAdapter.RekapViewHol
     public void onBindViewHolder(@NonNull RekapViewHolder holder, int position) {
         Santri santri = rekapList.get(position);
         holder.tvNama.setText(santri.getNama());
-        
+
         // Menampilkan status atau nilai di kolom sebelah kanan
         if (santri.getNilai() != null && !santri.getNilai().isEmpty()) {
-            holder.tvStatus.setText(santri
-                    .getNilai().size());
+            holder.tvStatus.setText(String.valueOf(santri.getNilai().size()));
         } else {
             holder.tvStatus.setText(santri.getStatus());
         }

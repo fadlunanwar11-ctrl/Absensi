@@ -42,9 +42,11 @@ public class ProfileFragment extends Fragment {
         LinearLayout btnChangePassword = view.findViewById(R.id.btnChangePassword);
         Button btnLogout = view.findViewById(R.id.btnLogout);
 
-        // Contoh set data (Nanti bisa diambil dari database/sharedpreferences)
-        tvName.setText("Roni");
-        tvRole.setText("admin");
+        // Baca data dari SharedPreferences
+        android.content.SharedPreferences pref = getActivity()
+                .getSharedPreferences("ABSENSI_APP", android.content.Context.MODE_PRIVATE);
+        tvName.setText(pref.getString("nama", "-"));
+        tvRole.setText(pref.getString("user_role", "-"));
 
         // 3. Tambahkan Fungsi Klik
         btnEditProfile.setOnClickListener(v -> {
@@ -56,10 +58,13 @@ public class ProfileFragment extends Fragment {
         });
 
         btnLogout.setOnClickListener(v -> {
-            // Fungsi Logout: Kembali ke LoginActivity
+            // Clear semua session dulu
+            pref.edit().clear().apply();
+            // Kembali ke LoginActivity
             Intent intent = new Intent(getActivity(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-            getActivity().finish(); // Menutup MainActivity agar tidak bisa "back" lagi
+            getActivity().finish();
         });
     }
 }

@@ -50,11 +50,16 @@ public class PenilaianActivity extends AppCompatActivity {
         btnSimpan.setOnClickListener(v -> {
             StringBuilder sb = new StringBuilder();
             for (Santri s : santriList) {
-                if (!s.getNilai().isEmpty()) {
-                    sb.append(s.getNama()).append(": ").append(s.getNilai()).append("\n");
+                String nilaiPraktek = s.getNilaiPraktek();
+                String nilaiHafalan = s.getNilaiHafalan();
+                if (!nilaiPraktek.isEmpty() || !nilaiHafalan.isEmpty()) {
+                    sb.append(s.getNama())
+                            .append(": Praktek=").append(nilaiPraktek)
+                            .append(", Hafalan=").append(nilaiHafalan)
+                            .append("\n");
                 }
             }
-            
+
             if (sb.length() > 0) {
                 Toast.makeText(this, "Nilai Santri Tersimpan:\n" + sb.toString(), Toast.LENGTH_LONG).show();
             } else {

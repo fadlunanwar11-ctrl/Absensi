@@ -57,6 +57,6 @@ public class Santri implements Serializable {
 
 
     public Collection<Object> getNilai() {
-        return null;
+        return new java.util.ArrayList<>();
     }
 }
