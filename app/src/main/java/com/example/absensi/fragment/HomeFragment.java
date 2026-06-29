@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.example.absensi.R;
+import com.example.absensi.activity.AbsenActivity;
+import com.example.absensi.activity.DaftarKelasActivity;
+import com.example.absensi.activity.PenilaianActivity;
+import com.example.absensi.activity.RekapActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -58,8 +64,8 @@ public class HomeFragment extends Fragment {
 
         // 2. Ambil data role dari SharedPreferences
         if (getActivity() != null) {
-            SharedPreferences pref = getActivity().getSharedPreferences("USER_DATA", Context.MODE_PRIVATE);
-            userRole = pref.getString("role", "guru_mapel");
+            SharedPreferences pref = getActivity().getSharedPreferences("ABSENSI_APP", Context.MODE_PRIVATE);
+            userRole = pref.getString("user_role", "guru_mapel");
 
             // 3. Update Teks Header & Visibilitas Section sesuai Role
             if (tvUserRole != null) {

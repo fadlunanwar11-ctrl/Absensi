@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.absensi.R;
+import com.example.absensi.Santri;
+import com.example.absensi.SantriAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

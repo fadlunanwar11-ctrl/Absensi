@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.absensi.R;
+import com.example.absensi.activity.LoginActivity;
 
 public class ProfileFragment extends Fragment {
 

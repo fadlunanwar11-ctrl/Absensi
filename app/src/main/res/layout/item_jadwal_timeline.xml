@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:marginEnd="16dp">
+        android:layout_marginEnd="16dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="16dp"

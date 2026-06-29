@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.absensi.R;
+import com.example.absensi.RekapAdapter;
+import com.example.absensi.Santri;
 
 import java.util.ArrayList;
 import java.util.List;

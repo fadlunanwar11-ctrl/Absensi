@@ -29,20 +29,30 @@ public class PenilaianAdapter extends RecyclerView.Adapter<PenilaianAdapter.Sant
     @Override
     public void onBindViewHolder(@NonNull SantriViewHolder holder, int position) {
         Santri santri = santriList.get(position);
+        holder.tvNo.setText(String.valueOf(position + 1));
         holder.tvNama.setText(santri.getNama());
-        holder.tvId.setText("ID: " + santri.getId());
-        holder.etNilai.setText(santri.getNilai());
+        
+        holder.etNilaiPraktek.setText(santri.getNilaiPraktek());
+        holder.etNilaiHafalan.setText(santri.getNilaiHafalan());
 
-        // Update nilai di list saat user mengetik
-        holder.etNilai.addTextChangedListener(new TextWatcher() {
+        holder.etNilaiPraktek.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                santri.setNilai(s.toString());
+                santri.setNilaiPraktek(s.toString());
             }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
 
+        holder.etNilaiHafalan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                santri.setNilaiHafalan(s.toString());
+            }
             @Override
             public void afterTextChanged(Editable s) {}
         });
@@ -54,14 +64,15 @@ public class PenilaianAdapter extends RecyclerView.Adapter<PenilaianAdapter.Sant
     }
 
     public static class SantriViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNama, tvId;
-        EditText etNilai;
+        TextView tvNo, tvNama;
+        EditText etNilaiPraktek, etNilaiHafalan;
 
         public SantriViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvNo = itemView.findViewById(R.id.tvNo);
             tvNama = itemView.findViewById(R.id.tvNamaSantri);
-            tvId = itemView.findViewById(R.id.tvIdSantri);
-            etNilai = itemView.findViewById(R.id.etNilaiSantri);
+            etNilaiPraktek = itemView.findViewById(R.id.etNilaiPraktek);
+            etNilaiHafalan = itemView.findViewById(R.id.etNilaiHafalan);
         }
     }
 }

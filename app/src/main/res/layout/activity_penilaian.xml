@@ -5,34 +5,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F9FAFB"
-    android:paddingTop="24dp">
+    android:background="#F9FAFB">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarPenilaian"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
         app:title="Penilaian Santri"
         app:titleTextColor="@color/black"
-        app:navigationIcon="?attr/homeAsUpIndicator" />
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:elevation="2dp" />
+
+    <!-- Table Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="#E5E7EB">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Nama Santri"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Praktek"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hafalan"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:textSize="12sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPenilaian"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="8dp"
         tools:listitem="@layout/item_santri_penilaian" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSimpanNilai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="SIMPAN SEMUA NILAI"
-        android:background="@drawable/btn_gradient"
-        app:backgroundTint="@null"
         android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:backgroundTint="#3B82F6" />
 
 </LinearLayout>

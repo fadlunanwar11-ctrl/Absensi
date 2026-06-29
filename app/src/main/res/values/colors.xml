@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- colors.xml - UPDATED -->
+<!-- Tambahan: nav_color (selector untuk bottom nav aktif/nonaktif) -->
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#2563EB</color>
     <color name="gray">#6B7280</color>
+
+    <!-- Warna bottom nav - item aktif biru, nonaktif abu -->
+    <color name="nav_selected">#2563EB</color>
+    <color name="nav_unselected">#6B7280</color>
 </resources>

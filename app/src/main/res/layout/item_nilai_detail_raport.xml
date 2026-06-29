@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="end"
-        android:marginEnd="12dp">
+        android:layout_marginEnd="12dp">
 
         <TextView
             android:id="@+id/tvNilaiRaport"

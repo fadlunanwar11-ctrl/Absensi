@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.absensi.PenilaianAdapter;
+import com.example.absensi.R;
+import com.example.absensi.Santri;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +40,8 @@ public class PenilaianActivity extends AppCompatActivity {
 
         // Data Dummy Santri
         santriList = new ArrayList<>();
-        santriList.add(new Santri("1001", "Ahmad Fauzi", ""));
-        santriList.add(new Santri("1002", "Budi Santoso", ""));
-        santriList.add(new Santri("1003", "Citra Lestari", ""));
-        santriList.add(new Santri("1004", "Dedi Kurniawan", ""));
-        santriList.add(new Santri("1005", "Eka Putri", ""));
-        santriList.add(new Santri("1006", "Farhan Malik", ""));
-        santriList.add(new Santri("1007", "Gita Permata", ""));
-        santriList.add(new Santri("1008", "Hadi Wijaya", ""));
+        santriList.add(new Santri("", "", ""));
+
 
         adapter = new PenilaianAdapter(santriList);
         rvPenilaian.setLayoutManager(new LinearLayoutManager(this));

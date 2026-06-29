@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- login.xml - UPDATED -->
+<!-- Perubahan: hapus Spinner role, tambah ProgressBar -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,11 +8,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    >
+    tools:context=".activity.LoginActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <!-- Header gradient -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="250dp">
@@ -27,24 +31,24 @@
                 android:textSize="32sp"
                 android:textColor="#FFFF"
                 android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                />
+                android:layout_gravity="center"/>
         </FrameLayout>
 
+        <!-- Card login -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
-            android:background="#FFFF"
             tools:ignore="MissingConstraints">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp"
-                >
+                android:padding="20dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,38 +57,41 @@
                     android:textSize="24sp"
                     android:textColor="#111827"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center"
-                    />
+                    android:layout_gravity="center"/>
+
+                <!-- Email (id tetap etUsername supaya tidak perlu ubah Java lama) -->
                 <EditText
                     android:id="@+id/etUsername"
-                    android:hint="Username (Optional)"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:padding="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
+                <!-- Password -->
                 <EditText
                     android:id="@+id/etPassword"
-                    android:hint="Password (Optional)"
+                    android:hint="Password"
                     android:layout_marginTop="16dp"
                     android:padding="12dp"
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-                <TextView
+                <!-- SPINNER ROLE DIHAPUS -->
+                <!-- Role sekarang diambil dari database Supabase setelah login -->
+                <!-- User tidak boleh pilih role sendiri -->
+
+                <!-- ProgressBar loading -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pilih Role :"
+                    android:layout_gravity="center"
                     android:layout_marginTop="16dp"
-                    android:textStyle="bold"/>
+                    android:visibility="gone"/>
 
-                <Spinner
-                    android:id="@+id/spinnerRole"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    />
-
+                <!-- Tombol Login -->
                 <Button
                     android:id="@+id/btnLogin"
                     android:text="LOGIN"
@@ -92,17 +99,20 @@
                     android:background="@drawable/btn_gradient"
                     app:backgroundTint="@null"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="wrap_content"/>
+
+                <!-- Link ke Register -->
                 <TextView
                     android:id="@+id/tvRegister"
-                    android:text="Register"
+                    android:text="Belum punya akun? Daftar di sini"
                     android:layout_marginTop="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    />
+                    android:textColor="#3B82F6"/>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

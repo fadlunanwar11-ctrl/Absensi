@@ -29,7 +29,8 @@ public class RekapAdapter extends RecyclerView.Adapter<RekapAdapter.RekapViewHol
         
         // Menampilkan status atau nilai di kolom sebelah kanan
         if (santri.getNilai() != null && !santri.getNilai().isEmpty()) {
-            holder.tvStatus.setText(santri.getNilai());
+            holder.tvStatus.setText(santri
+                    .getNilai().size());
         } else {
             holder.tvStatus.setText(santri.getStatus());
         }

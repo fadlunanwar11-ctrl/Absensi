@@ -1,10 +1,15 @@
-package com.example.absensi;
+package com.example.absensi.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.absensi.R;
+import com.example.absensi.RekapAdapter;
+import com.example.absensi.Santri;
+
 import java.util.ArrayList;
 import java.util.List;
 

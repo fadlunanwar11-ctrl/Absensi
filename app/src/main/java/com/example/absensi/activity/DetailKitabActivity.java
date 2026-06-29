@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -16,6 +16,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.absensi.Kitab;
+import com.example.absensi.R;
+import com.example.absensi.SubBab;
+import com.example.absensi.SubBabAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DetailKitabActivity extends AppCompatActivity {
@@ -68,9 +72,9 @@ public class DetailKitabActivity extends AppCompatActivity {
         });
 
         fabAddSubBab = findViewById(R.id.fabAddSubBab);
-        
-        SharedPreferences pref = getSharedPreferences("USER_DATA", MODE_PRIVATE);
-        String role = pref.getString("role", "guru_mapel");
+
+        SharedPreferences pref = getSharedPreferences("ABSENSI_APP", MODE_PRIVATE);
+        String role = pref.getString("user_role", "guru_mapel");
 
         if ("admin".equals(role)) {
             fabAddSubBab.setVisibility(View.VISIBLE);

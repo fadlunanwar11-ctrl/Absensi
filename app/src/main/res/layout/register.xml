@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".activity.RegisterActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -56,9 +56,18 @@
                     android:layout_gravity="center"
                     />
                 <EditText
-                    android:id="@+id/etFullName"
+                    android:id="@+id/etNama"
                     android:hint="Full Name"
                     android:padding="12dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:hint="Email"
+                    android:layout_marginTop="16dp"
+                    android:padding="12dp"
+                    android:inputType="textEmailAddress"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -71,17 +80,9 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <EditText
-                    android:id="@+id/etValidasiPassword"
-                    android:hint="Validasi Password"
-                    android:layout_marginTop="16dp"
-                    android:padding="12dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:inputType="textPassword"/>
 
                 <Button
-                    android:id="@+id/btnSignUp"
+                    android:id="@+id/btnRegister"
                     android:text="SIGN UP"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/btn_gradient"
@@ -89,6 +90,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar"
+                    android:visibility="gone"
+                    android:layout_gravity="center"/>
                 <TextView
                     android:id="@+id/tvLogin"
                     android:text="Login"

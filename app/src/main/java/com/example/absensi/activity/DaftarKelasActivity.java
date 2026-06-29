@@ -1,4 +1,4 @@
-package com.example.absensi;
+package com.example.absensi.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.absensi.Kelas;
+import com.example.absensi.KelasAdapter;
+import com.example.absensi.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

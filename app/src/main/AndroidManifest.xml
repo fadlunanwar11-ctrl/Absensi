@@ -1,49 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- WAJIB: izin internet untuk konek ke Supabase -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Untuk foto bukti mengajar -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Absensi">
+        android:theme="@style/Theme.Absensi"
+        android:usesCleartextTraffic="true">
+
+        <!-- LOGIN - halaman pertama yang dibuka -->
         <activity
-            android:name=".DaftarKelasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RekapActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PenilaianActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AbsenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MateriActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailKitabActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- REGISTER -->
+        <activity android:name=".activity.RegisterActivity"
+            android:exported="false"/>
+
+        <!-- MAIN (home setelah login) -->
+        <activity android:name=".activity.MainActivity"
+            android:exported="false"/>
+
+        <!-- ABSEN SANTRI -->
+        <activity android:name=".activity.AbsenActivity"
+            android:exported="false"/>
+
+        <!-- REKAP ABSEN -->
+        <activity android:name=".activity.RekapActivity"
+            android:exported="false"/>
+
+        <!-- PENILAIAN -->
+        <activity android:name=".activity.PenilaianActivity"
+            android:exported="false"/>
+
+        <!-- DAFTAR KELAS -->
+        <activity android:name=".activity.DaftarKelasActivity"
+            android:exported="false"/>
+
+        <!-- DETAIL KITAB -->
+        <activity android:name=".activity.DetailKitabActivity"
+            android:exported="false"/>
+
+        <!-- MATERI -->
+        <activity android:name=".activity.MateriActivity"
+            android:exported="false"/>
+
+        <!-- ABSEN GURU VIA FOTO (sebelumnya tidak terdaftar di manifest - ini bugfix) -->
+        <activity android:name=".activity.AbsenGuruActivity"
+            android:exported="false"/>
+
+        <!-- TAMBAH KELAS (admin) -->
+<!--        <activity android:name=".activity.TambahKelasActivity"-->
+<!--            android:exported="false"/>-->
+
+<!--        &lt;!&ndash; TAMBAH SANTRI (admin) &ndash;&gt;-->
+<!--        <activity android:name=".activity.TambahSantriActivity"-->
+<!--            android:exported="false"/>-->
+
+<!--        &lt;!&ndash; TAMBAH JADWAL (admin) &ndash;&gt;-->
+<!--        <activity android:name=".activity.TambahJadwalActivity"-->
+<!--            android:exported="false"/>-->
+
+<!--        &lt;!&ndash; APPROVE USER (admin) &ndash;&gt;-->
+<!--        <activity android:name=".activity.ApproveUserActivity"-->
+<!--            android:exported="false"/>-->
+
+<!--        &lt;!&ndash; RAPORT DETAIL &ndash;&gt;-->
+<!--        <activity android:name=".activity.RaportDetailActivity"-->
+<!--            android:exported="false"/>-->
+
+<!--        &lt;!&ndash; HAFALAN &ndash;&gt;-->
+<!--        <activity android:name=".activity.HafalanActivity"-->
+<!--            android:exported="false"/>-->
+
+    </application>
 </manifest>

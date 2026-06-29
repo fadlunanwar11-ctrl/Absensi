@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/color/nav_color.xml -->
+<!-- Selector warna untuk bottom nav:
+     - item yang dipilih  -> biru (nav_selected)
+     - item biasa         -> abu  (nav_unselected)
+-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Saat menu diklik (Aktif) -->
-    <item
-        android:color="#3B82F6"
+    <item android:color="@color/nav_selected"
         android:state_checked="true"/>
-    <!-- Saat menu tidak diklik (Tidak Aktif) - Kita buat lebih gelap agar kelihatan -->
-    <item
-        android:color="#6B7280"
-        android:state_checked="false"/>
+    <item android:color="@color/nav_unselected"/>
+    <!-- ... warna lainnya ... -->
+    <color name="nav_selected">#2563EB</color>
+    <color name="nav_unselected">#6B7280</color>
 </selector>
